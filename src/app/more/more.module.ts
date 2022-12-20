@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MoreRoutes } from './more.routing';
 import { SearchComponent } from './search/search.component';
 import { EvalutionComponent } from './evalution/evalution.component';
+import { LibraryComponent } from './library/library.component';
 
 
 
@@ -14,7 +15,8 @@ import { EvalutionComponent } from './evalution/evalution.component';
   declarations: [
     CampusComponent,
     SearchComponent,
-    EvalutionComponent
+    EvalutionComponent,
+    LibraryComponent
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-left-image-text',
@@ -21,11 +21,19 @@ export class LeftImageTextComponent implements OnInit {
   himg: string = 'assets/images/cems/about/44.jpg';
   timg: string = 'assets/images/cems/about/33.jpg';
   daimg: string = '';
+  choice: any;
+  showDiv: any;
   constructor(
     private router: Router,
-  ) { }
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.choice = localStorage.getItem('choice');
+   }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => {
+      this.showDiv = params['id'];
+    });
     if (this.router.url == "/cems/basic/about") {
       this.textdata = this.aboutdata;
       this.daimg = this.dimg;
@@ -46,5 +54,6 @@ export class LeftImageTextComponent implements OnInit {
 
     }
   }
+  
 
 }
