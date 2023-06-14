@@ -3,12 +3,11 @@ import { HomeService } from 'src/app/core/services/home.services';
 import { StaffService } from 'src/app/core/services/staff.services';
 
 @Component({
-  selector: 'app-kg',
-  templateUrl: './kg.component.html',
-  styleUrls: ['./kg.component.css']
+  selector: 'app-staff-details',
+  templateUrl: './staff-details.component.html',
+  styleUrls: ['./staff-details.component.css']
 })
-export class KGComponent implements OnInit {
-
+export class StaffDetailsComponent implements OnInit {
   staffDataTable: any = [];
   departmentData: any = [];
   filterData: any = [];
@@ -32,7 +31,6 @@ export class KGComponent implements OnInit {
   }
   selectDepartment(val: any) {
     this.selectedDepartment = val;
-    debugger
     this.filterData = [];
     this.staffDataTable.forEach((element: any) => {
       if (element.departmentName == this.selectedDepartment) {
@@ -48,9 +46,9 @@ export class KGComponent implements OnInit {
     this.filterData = [];
     this.staffService.getAllStaffDetailsData(localStorage.getItem('InstituteId')).subscribe((res: any) => {
       this.staffDataTable = res;
-      this.filterData = res;
-
+      if (this.selectedDepartment == 'all') {
+        this.filterData = res;
+      }
     })
   }
-
 }

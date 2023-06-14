@@ -11,6 +11,7 @@ import { StructureComponent } from "./structure/structure.component";
 import { HistoryComponent } from "./history/history.component";
 import { AchievementsComponent } from "./achievements/achievements.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HomeModule } from "../home/home.module";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     SharedModule,
     RouterModule.forChild(BasicRoutes),
     NgbModule,
+    HomeModule,
     FormsModule,
     ReactiveFormsModule,
   ],
